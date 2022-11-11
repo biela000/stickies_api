@@ -9,7 +9,7 @@ router
   .post(controller.prepareBody, controller.createOneBoard);
 router
   .route('/:name')
-  .get(controller.getOneBoard)
+  .get(controller.createOrGetOneBoard)
   .patch(controller.prepareBody, controller.updateOneBoard)
   .delete(controller.deleteOneBoard);
 

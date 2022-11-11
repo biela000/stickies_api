@@ -24,11 +24,14 @@ exports.getAllBoards = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.getOneBoard = catchAsync(async (req, res, next) => {
-  const board = await Board.findOne({ name: req.params.name });
+exports.createOrGetOneBoard = catchAsync(async (req, res, next) => {
+  let board = await Board.findOne({ name: req.params.name });
 
   if (!board) {
-    next(new AppError('Board of given name does not exist', 404));
+    board = await Board.create({
+      name: req.params.name,
+      notes: [],
+    });
   }
 
   res.status(200).json({
