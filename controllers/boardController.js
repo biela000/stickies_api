@@ -11,6 +11,7 @@ exports.prepareBody = (req, res, next) => {
       )
     );
   }
+  next();
 };
 
 exports.getAllBoards = catchAsync(async (req, res, next) => {
