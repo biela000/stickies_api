@@ -32,6 +32,7 @@ exports.createOrGetOneBoard = catchAsync(async (req, res, next) => {
     board = await Board.create({
       name: req.params.name,
       notes: [],
+      mileage: 0,
     });
   }
 

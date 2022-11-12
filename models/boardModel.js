@@ -13,6 +13,7 @@ const schema = new mongoose.Schema({
     default: Date.now(),
   },
   notes: [Object],
+  mileage: Number,
 });
 
 module.exports = mongoose.model('Board', schema);
